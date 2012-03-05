@@ -1278,15 +1278,11 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(OTATOOLS)
 	   --override_device=$(override_device) \
 	   $(BUILT_TARGET_FILES_PACKAGE) $@
 
-.PHONY: otapackage bacon
+.PHONY: otapackage gummy
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
-bacon: otapackage
-ifneq ($(TARGET_CUSTOM_RELEASETOOL),)
-	@echo "Running releasetool"
-	$(hide) $(TARGET_CUSTOM_RELEASETOOL)
-else
-	$(hide) ./vendor/cm/tools/squisher
-endif
+gummy: otapackage
+        @echo "Running Releasetools"
+        $(hide) ./vendor/Gummy/tools/squisher
 
 # -----------------------------------------------------------------
 # The update package
