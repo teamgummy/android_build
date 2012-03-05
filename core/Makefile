@@ -1281,8 +1281,8 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(OTATOOLS)
 .PHONY: otapackage gummy
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 gummy: otapackage
-        @echo "Running Releasetools"
-        $(hide) ./vendor/Gummy/tools/squisher
+	@echo "Running Releasetools"
+	$(hide) ./vendor/Gummy/tools/squisher
 
 # -----------------------------------------------------------------
 # The update package
