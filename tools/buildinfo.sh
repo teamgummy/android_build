@@ -13,7 +13,9 @@ echo "ro.build.date=`date`"
 echo "ro.build.date.utc=`date +%s`"
 echo "ro.build.type=$TARGET_BUILD_TYPE"
 echo "ro.build.user=$USER"
-echo "ro.build.host=`hostname`"
+if [ -z "$BUILD_HOST" ] ; then
+    BUILD_HOST=`hostname`
+fi
 echo "ro.build.tags=$BUILD_VERSION_TAGS"
 echo "ro.product.model=$PRODUCT_MODEL"
 echo "ro.product.brand=$PRODUCT_BRAND"
